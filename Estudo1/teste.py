@@ -15,20 +15,24 @@ nome_filme = input("Nome do filme: ")
 vilao_nome = input(f"Nome do vilão de {nome_filme}: ")
 ano_lancamento = int(input(f"Ano de lançamento de {nome_filme}: "))
 
+
 # Adicionando as informações ao dicionário
 novo_filme["nome"] = nome_filme
 novo_filme["vilao"] = vilao_nome
 novo_filme["ano"] = ano_lancamento
+
 
 # Imprimindo as informações do novo filme
 print(f"O nome do filme é: {novo_filme['nome']}.")
 print(f"O vilão é: {novo_filme['vilao']}.")
 print(f"O ano de lançamento é: {novo_filme['ano']}.")
 
+
 ## Escrevendo os dados em um arquivo JSON
 with open('filmes.json', 'a') as arquivo:
     json.dump(novo_filme, arquivo)
     arquivo.write('\n')  # Adiciona uma nova linha para separar cada filme
+
 
 # Lendo os dados do arquivo JSON
 with open('filmes.json', 'r') as arquivo:
@@ -38,6 +42,17 @@ with open('filmes.json', 'r') as arquivo:
         print(f"Vilão: {filme['vilao']}")
         print(f"Ano: {filme['ano']}")
         print("-" * 20)
+
+arquivo.close()
+
+
+
+
+
+
+
+
+
 
 
 import sqlite3
